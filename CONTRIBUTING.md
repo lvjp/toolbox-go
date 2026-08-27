@@ -139,5 +139,14 @@ reference GitHub issues that this commit **Closes**.
 **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The
 rest of the commit message is then used for this.
 
+## License
+
+This project is licensed under either of the Apache License, Version 2.0
+([LICENSE-APACHE](LICENSE-APACHE)) or the MIT license ([LICENSE-MIT](LICENSE-MIT)), at your option.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in
+the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any
+additional terms or conditions.
+
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/
 [github-issue-closing]: https://help.github.com/articles/closing-issues-via-commit-messages/

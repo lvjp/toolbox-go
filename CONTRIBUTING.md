@@ -10,9 +10,8 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 * All features or bug fixes **must be tested** by one or more unit-tests.
 * All exported API items **must be documented** with godoc comments, starting with the name of the
   item being documented.
-* Source code formatting is verified with `gofmt` and linted with `golangci-lint run`. All code is
-  wrapped at **100 characters**.
-* `go vet ./...` and `go test ./...` **must pass** before opening a pull request.
+* `golangci-lint run` and `go test ./...` **must pass** before opening a pull request. The linter
+  configuration covers vetting as well as formatting, and wraps all code at **100 characters**.
 * `go fix ./...` **must leave the code unchanged**: whatever it rewrites is applied before opening
   the pull request, not left to the reviewer.
 * The files configuring the repository (`.gitignore`, editor and tooling configuration, ...)
@@ -114,7 +113,7 @@ sense and pick whatever helps the person reading the history:
 * a `build` change concerning a single target may use that target as its scope, be it an operating
   system or an architecture (e.g. `build(windows)`, `build(arm64)`)
 * a change spread over every package takes no scope, as there is nothing useful to name
-  (e.g. `style: apply gofmt`)
+  (e.g. `style: apply golangci-lint fmt`)
 
 The scope is optional: leaving it out is always better than inventing one.
 

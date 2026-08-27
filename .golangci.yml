@@ -1,0 +1,55 @@
+version: "2"
+linters:
+  enable:
+    - asciicheck
+    - bodyclose
+    - dupl
+    - errcheck
+    - errname
+    - goconst
+    - gocritic
+    - gocyclo
+    - gosec
+    - govet
+    - importas
+    - ineffassign
+    - misspell
+    - mnd
+    - nestif
+    - nilerr
+    - nilnil
+    - revive
+    - staticcheck
+    - testifylint
+    - unconvert
+    - unused
+    - whitespace
+  settings:
+    errcheck:
+      # Report about not checking of errors in type assertions: `a := b.(MyStruct)`.
+      check-type-assertions: true
+      # report about assignment of errors to blank identifier: `num, _ := strconv.Atoi(numStr)`;
+      check-blank: true
+    gocyclo:
+      # minimal code complexity to report, 30 by default
+      min-complexity: 15
+  exclusions:
+    generated: strict
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - dupl
+          - goconst
+          - gosec
+        path: _test\.go
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - golines
+  exclusions:
+    generated: strict

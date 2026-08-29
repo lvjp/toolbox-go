@@ -33,6 +33,12 @@ jobs:
         run: go mod tidy -diff
       - name: go fix
         run: go fix -diff ./...
+      - name: Sets up editorconfig-checker
+        uses: editorconfig-checker/action-editorconfig-checker@840e866d93b8e032123c23bac69dece044d4d84c # v2.2.0
+        with:
+          version: v3.11.2 # renovate: datasource=github-releases depName=editorconfig-checker/editorconfig-checker
+      - name: editorconfig-checker
+        run: editorconfig-checker
 
   golangci-lint:
     runs-on: ubuntu-24.04

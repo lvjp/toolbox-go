@@ -11,12 +11,15 @@
     "dependencyDashboard": false,
     "rebaseWhen": "behind-base-branch",
     "timezone": "Europe/Paris",
+    "semanticCommits": "enabled",
+    "semanticCommitScope": "",
+    "commitMessageTopic": "{{depName}}",
     "customManagers": [
         {
             "customType": "regex",
             "description": "GitHub Actions workflow",
             "managerFilePatterns": [
-                "/^\\.github/workflows/ci\\.yml$/"
+                ".github/workflows/**"
             ],
             "matchStrings": [
                 "(?<currentValue>[^\\s]+) # renovate: datasource=(?<datasource>.+) depName=(?<depName>.+)"
@@ -30,6 +33,20 @@
                 "go",
                 "golang"
             ]
+        },
+        {
+            "description": "Module dependencies are build changes",
+            "matchManagers": [
+                "gomod"
+            ],
+            "semanticCommitType": "build"
+        },
+        {
+            "description": "Actions and CI tools are ci changes",
+            "matchFileNames": [
+                ".github/workflows/**"
+            ],
+            "semanticCommitType": "ci"
         }
     ]
 }

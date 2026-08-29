@@ -14,6 +14,9 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
   configuration covers vetting as well as formatting, and wraps all code at **100 characters**.
 * `go fix ./...` **must leave the code unchanged**: whatever it rewrites is applied before opening
   the pull request, not left to the reviewer.
+* Whatever the project builds or runs **must be reproducible**: pin what can be pinned, from the
+  module dependencies in `go.sum` to the actions of a workflow, so that the same revision still
+  gives the same result tomorrow. See [reproducible builds][reproducible-builds] for the rationale.
 * The files configuring the repository (`.gitignore`, editor and tooling configuration, ...)
   describe the project, **not a workstation**. Anything that only makes sense on a single machine
   or for a single setup belongs to the per user equivalent the tool provides:
@@ -149,3 +152,4 @@ additional terms or conditions.
 
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/
 [github-issue-closing]: https://help.github.com/articles/closing-issues-via-commit-messages/
+[reproducible-builds]: https://reproducible-builds.org/

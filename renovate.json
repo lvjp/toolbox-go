@@ -35,6 +35,13 @@
             ]
         },
         {
+            "groupName": "editorconfig-checker",
+            "matchDepNames": [
+                "editorconfig-checker/action-editorconfig-checker",
+                "editorconfig-checker/editorconfig-checker"
+            ]
+        },
+        {
             "description": "Module dependencies are build changes",
             "matchManagers": [
                 "gomod"
